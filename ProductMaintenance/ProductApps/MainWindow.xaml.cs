@@ -21,6 +21,7 @@ namespace ProductApps
     public partial class MainWindow : Window
     {
         Product cProduct;
+        double GSTPayment;
 
         public MainWindow()
         {
@@ -36,6 +37,8 @@ namespace ProductApps
                 totalPaymentTextBlock.Text = Convert.ToString(cProduct.TotalPayment);
                 totalChargeTextBlock.Text = Convert.ToString(cProduct.TotalPayment + 25);
                 wrappingChargeTextBlock.Text = Convert.ToString(cProduct.TotalPayment + 25 + 5);
+                GSTPayment = Convert.ToDouble(cProduct.TotalPayment + 25 + 5) * 1.1;
+                GSTChargeTextBlock.Text = Convert.ToString(GSTPayment);
             }
             catch (FormatException)
             {
